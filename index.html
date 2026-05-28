@@ -581,6 +581,208 @@
       border-radius: 6px;
     }
 
+    /* ── PHONE MOCKUP ── */
+    .phone-frame {
+      width: 200px;
+      height: 390px;
+      background: #1c1c1e;
+      border-radius: 38px;
+      padding: 10px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(255,255,255,0.06);
+      animation: floatCard 6s ease-in-out infinite;
+      position: relative;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 5px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 3px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #ECE5DD;
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wa-header {
+      background: #075E54;
+      padding: 16px 10px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .wa-avatar {
+      width: 30px;
+      height: 30px;
+      background: #128C7E;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .wa-name { color: white; font-size: 12px; font-weight: 600; }
+
+    .wa-status { color: rgba(255,255,255,0.6); font-size: 10px; }
+
+    .wa-messages {
+      flex: 1;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      overflow: hidden;
+    }
+
+    .wa-bubble {
+      max-width: 85%;
+      padding: 5px 9px;
+      border-radius: 8px;
+      font-size: 10px;
+      line-height: 1.45;
+      color: #111;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+    }
+
+    .wa-bubble.in {
+      background: white;
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+    }
+
+    .wa-bubble.out {
+      background: #DCF8C6;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+    }
+
+    .wa-bubble.confirmed {
+      background: #25D366;
+      color: white;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+    }
+
+    /* ── DASHBOARD MOCKUP ── */
+    .dash-frame {
+      width: 260px;
+      background: rgba(10, 8, 30, 0.97);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      animation: floatCard 6s ease-in-out infinite;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+    }
+
+    .dash-titlebar {
+      background: rgba(255,255,255,0.04);
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dash-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .dash-url {
+      font-size: 10px;
+      color: rgba(255,255,255,0.28);
+      margin-left: 8px;
+      font-family: monospace;
+    }
+
+    .dash-body { padding: 14px; }
+
+    .dash-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .dash-stat-card {
+      background: rgba(79,70,229,0.18);
+      border: 1px solid rgba(79,70,229,0.28);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .dash-stat-num {
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .dash-stat-lbl {
+      font-size: 9px;
+      color: rgba(255,255,255,0.42);
+      margin-top: 2px;
+    }
+
+    .dash-chart-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 6px;
+    }
+
+    .dash-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 52px;
+      margin-bottom: 12px;
+    }
+
+    .dash-bar {
+      flex: 1;
+      background: var(--indigo-500);
+      border-radius: 3px 3px 0 0;
+      opacity: 0.7;
+    }
+
+    .dash-bar.hi { opacity: 1; background: var(--indigo-400); }
+
+    .dash-list { display: flex; flex-direction: column; gap: 6px; }
+
+    .dash-list-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      font-size: 9px;
+      flex-shrink: 0;
+    }
+
+    .dash-badge.green { background: rgba(34,197,94,0.18); color: #22c55e; }
+    .dash-badge.blue  { background: rgba(99,102,241,0.22); color: #818cf8; }
+
     /* ── SCROLL ANIMATIONS ── */
     .reveal {
       opacity: 0;
@@ -693,18 +895,25 @@
         </div>
       </div>
       <div class="product-card-visual green">
-        <div class="visual-mockup">
-          <div class="mockup-header">
-            <div class="mockup-dot" style="background:#22c55e"></div>
-            <div class="mockup-row short" style="margin:0;height:8px;flex:1"></div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="wa-header">
+              <div class="wa-avatar">🤖</div>
+              <div>
+                <div class="wa-name">Slotio Bot</div>
+                <div class="wa-status">● en línea</div>
+              </div>
+            </div>
+            <div class="wa-messages">
+              <div class="wa-bubble in">Hola! Quiero reservar un corte 💇</div>
+              <div class="wa-bubble out">¡Claro! ¿Para qué día?</div>
+              <div class="wa-bubble in">Mañana si hay</div>
+              <div class="wa-bubble out">Disponible mañana:<br>• 10:00 am ✓<br>• 2:00 pm ✓<br>• 4:30 pm ✓</div>
+              <div class="wa-bubble in">Las 2pm perfecto 👍</div>
+              <div class="wa-bubble confirmed">¡Listo! Agendado para mañana a las 2:00 pm 🎉</div>
+            </div>
           </div>
-          <div class="mockup-msg"><div class="mockup-msg-text" style="width:130px"></div></div>
-          <div class="mockup-msg"><div class="mockup-msg-text" style="width:90px"></div></div>
-          <div class="mockup-msg right"><div class="mockup-msg-text" style="width:70px"></div></div>
-          <div class="mockup-msg"><div class="mockup-msg-text" style="width:110px"></div></div>
-          <div class="mockup-msg right"><div class="mockup-msg-text" style="width:80px"></div></div>
-          <div class="mockup-row medium" style="margin-top:12px"></div>
-          <div class="mockup-row short"></div>
         </div>
       </div>
     </div>
@@ -712,18 +921,49 @@
     <!-- Desarrollo a medida -->
     <div class="product-card reveal">
       <div class="product-card-visual">
-        <div class="visual-mockup">
-          <div class="mockup-header">
-            <div class="mockup-dot" style="background:#6366f1"></div>
-            <div class="mockup-dot" style="background:#a78bfa"></div>
-            <div class="mockup-dot" style="background:#818cf8"></div>
+        <div class="dash-frame">
+          <div class="dash-titlebar">
+            <span class="dash-dot" style="background:#ff5f56"></span>
+            <span class="dash-dot" style="background:#ffbd2e"></span>
+            <span class="dash-dot" style="background:#27c93f"></span>
+            <span class="dash-url">dashboard.miapp.com</span>
           </div>
-          <div class="mockup-row"></div>
-          <div class="mockup-row medium"></div>
-          <div class="mockup-row short"></div>
-          <div style="height:12px"></div>
-          <div class="mockup-row"></div>
-          <div class="mockup-row short"></div>
+          <div class="dash-body">
+            <div class="dash-stats-row">
+              <div class="dash-stat-card">
+                <div class="dash-stat-num">1,284</div>
+                <div class="dash-stat-lbl">Reservas este mes</div>
+              </div>
+              <div class="dash-stat-card">
+                <div class="dash-stat-num">99.9%</div>
+                <div class="dash-stat-lbl">Uptime</div>
+              </div>
+            </div>
+            <div class="dash-chart-label">Actividad últimos 7 días</div>
+            <div class="dash-chart">
+              <div class="dash-bar" style="height:42%"></div>
+              <div class="dash-bar" style="height:68%"></div>
+              <div class="dash-bar" style="height:50%"></div>
+              <div class="dash-bar" style="height:82%"></div>
+              <div class="dash-bar" style="height:61%"></div>
+              <div class="dash-bar hi" style="height:93%"></div>
+              <div class="dash-bar" style="height:75%"></div>
+            </div>
+            <div class="dash-list">
+              <div class="dash-list-item">
+                <span class="dash-badge green">✓</span>
+                Bot respondió en &lt;1s
+              </div>
+              <div class="dash-list-item">
+                <span class="dash-badge blue">⚡</span>
+                API integrada con CRM
+              </div>
+              <div class="dash-list-item">
+                <span class="dash-badge green">✓</span>
+                Deploy automático activo
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="product-card-content">
