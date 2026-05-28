@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="facebook-domain-verification" content="ait6j1j7ww59x51lwubvlnwjl1lgod" />
+  <title>AtehoCode — Software para negocios en Latinoamérica</title>
+  <meta name="description" content="Desarrollamos software que automatiza y hace crecer los negocios de servicios en Latinoamérica. Conoce Slotio, nuestra plataforma de reservas por WhatsApp." />
+  <link rel="icon" href="icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo-950: #0f0c29;
+      --indigo-900: #1e1b4b;
+      --indigo-800: #312e81;
+      --indigo-600: #4f46e5;
+      --indigo-500: #6366f1;
+      --indigo-400: #818cf8;
+      --indigo-100: #e0e7ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+    }
+
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #111;
+    }
+
+    .nav-logo-text span { color: var(--indigo-600); }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--indigo-600); }
+
+    .nav-cta {
+      background: var(--indigo-600) !important;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--indigo-800) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fafaff 0%, #f0f0ff 50%, #e8e4ff 100%);
+      z-index: 0;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-orb-1 {
+      width: 500px; height: 500px;
+      background: var(--indigo-500);
+      top: -100px; left: -100px;
+      animation-delay: 0s;
+    }
+
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      background: #a78bfa;
+      bottom: -80px; right: -80px;
+      animation-delay: -3s;
+    }
+
+    .hero-orb-3 {
+      width: 300px; height: 300px;
+      background: #38bdf8;
+      top: 40%; left: 60%;
+      animation-delay: -5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--indigo-100);
+      color: var(--indigo-600);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 8px rgba(79,70,229,0.12);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--indigo-600), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--indigo-600);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(79,70,229,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--indigo-800);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79,70,229,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: #333;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--indigo-400);
+      color: var(--indigo-600);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--indigo-950);
+      padding: 48px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+      color: white;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff, var(--indigo-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    /* ── PRODUCTS ── */
+    .products {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--indigo-600);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: #666;
+      max-width: 500px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #fff;
+      border: 1px solid #e8e8ed;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    .product-card-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .tag-slotio {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .tag-custom {
+      background: var(--indigo-100);
+      color: var(--indigo-800);
+    }
+
+    .product-card h3 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .product-features li {
+      font-size: 14px;
+      color: #444;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-features li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: var(--indigo-100);
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%234f46e5'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .product-card-visual {
+      background: linear-gradient(135deg, var(--indigo-950) 0%, var(--indigo-800) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card-visual.green {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+    }
+
+    .visual-mockup {
+      width: 240px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    .mockup-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .mockup-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+
+    .mockup-row {
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .mockup-row.short { width: 60%; }
+    .mockup-row.medium { width: 80%; }
+
+    .mockup-msg {
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px 10px 10px 2px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+    }
+
+    .mockup-msg.right {
+      background: rgba(79,70,229,0.6);
+      border-radius: 10px 10px 2px 10px;
+      margin-left: auto;
+      width: fit-content;
+    }
+
+    .mockup-msg-text {
+      height: 8px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 3px;
+      width: 100px;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: linear-gradient(135deg, var(--indigo-950), var(--indigo-900));
+      padding: 100px 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .contact h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 8px;
+    }
+
+    .contact a {
+      color: var(--indigo-400);
+      text-decoration: none;
+    }
+
+    .contact a:hover { color: #fff; }
+
+    .contact-actions {
+      margin-top: 36px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--indigo-800);
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover { transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #888;
+      border-top: 1px solid #f0f0f0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer a {
+      color: #888;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    footer a:hover { color: var(--indigo-600); }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .footer-logo img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .product-card { grid-template-columns: 1fr; }
+      .product-card-visual { min-height: 220px; }
+      .products { padding: 60px 20px; }
+      .stats { gap: 40px; padding: 40px 20px; }
+      .contact { padding: 60px 20px; }
+      footer { padding: 20px; flex-direction: column; text-align: center; }
+      footer a { margin: 4px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="icon.png" alt="AtehoCode" />
+      <span class="nav-logo-text">Ateho<span>Code</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="privacy-policy.html">Privacidad</a>
+      <a href="https://slotio.atehodev.online" class="nav-cta" target="_blank">Ver Slotio →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Construyendo en Latinoamérica
+      </div>
+      <h1>Software que hace<br /><span class="gradient">crecer tu negocio</span></h1>
+      <p>Desarrollamos soluciones digitales para pequeñas y medianas empresas. Simples, rápidas y que realmente funcionan.</p>
+      <div class="hero-actions">
+        <a href="https://slotio.atehodev.online" class="btn-primary" target="_blank">
+          Conocer Slotio →
+        </a>
+        <a href="#contacto" class="btn-secondary">
+          Hablar con nosotros
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Automatización real</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">WhatsApp</div>
+      <div class="stat-label">Canal principal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">LATAM</div>
+      <div class="stat-label">Nuestro mercado</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">El bot trabaja siempre</div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="productos">
+    <div class="reveal">
+      <div class="section-label">Productos</div>
+      <h2 class="section-title">Herramientas para tu negocio</h2>
+      <p class="section-sub">Creamos software que automatiza las tareas repetitivas para que te enfoques en lo importante.</p>
+    </div>
+
+    <!-- Slotio -->
+    <div class="product-card reveal">
+      <div class="product-card-content">
+        <span class="product-tag tag-slotio">Disponible ahora</span>
+        <h3>Slotio</h3>
+        <p>Plataforma de reservas y agendamiento por WhatsApp para negocios de servicios. Tus clientes agendan en segundos, sin llamadas ni formularios.</p>
+        <ul class="product-features">
+          <li>Bot de WhatsApp con IA para agendar citas</li>
+          <li>Dashboard para gestionar citas y staff</li>
+          <li>Recordatorios automáticos</li>
+          <li>Multi-negocio y multi-empleado</li>
+        </ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://slotio.atehodev.online" class="btn-primary" target="_blank">Ver Slotio →</a>
+        </div>
+      </div>
+      <div class="product-card-visual green">
+        <div class="visual-mockup">
+          <div class="mockup-header">
+            <div class="mockup-dot" style="background:#22c55e"></div>
+            <div class="mockup-row short" style="margin:0;height:8px;flex:1"></div>
+          </div>
+          <div class="mockup-msg"><div class="mockup-msg-text" style="width:130px"></div></div>
+          <div class="mockup-msg"><div class="mockup-msg-text" style="width:90px"></div></div>
+          <div class="mockup-msg right"><div class="mockup-msg-text" style="width:70px"></div></div>
+          <div class="mockup-msg"><div class="mockup-msg-text" style="width:110px"></div></div>
+          <div class="mockup-msg right"><div class="mockup-msg-text" style="width:80px"></div></div>
+          <div class="mockup-row medium" style="margin-top:12px"></div>
+          <div class="mockup-row short"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desarrollo a medida -->
+    <div class="product-card reveal">
+      <div class="product-card-visual">
+        <div class="visual-mockup">
+          <div class="mockup-header">
+            <div class="mockup-dot" style="background:#6366f1"></div>
+            <div class="mockup-dot" style="background:#a78bfa"></div>
+            <div class="mockup-dot" style="background:#818cf8"></div>
+          </div>
+          <div class="mockup-row"></div>
+          <div class="mockup-row medium"></div>
+          <div class="mockup-row short"></div>
+          <div style="height:12px"></div>
+          <div class="mockup-row"></div>
+          <div class="mockup-row short"></div>
+        </div>
+      </div>
+      <div class="product-card-content">
+        <span class="product-tag tag-custom">A medida</span>
+        <h3>Desarrollo personalizado</h3>
+        <p>Construimos soluciones a la medida de tu negocio: bots, automatizaciones, APIs e integraciones que simplifican tu operación.</p>
+        <ul class="product-features">
+          <li>Bots y automatizaciones de procesos</li>
+          <li>Integraciones con tus herramientas</li>
+          <li>APIs y backends a medida</li>
+          <li>Consultoría de arquitectura</li>
+        </ul>
+        <a href="#contacto" class="btn-secondary">Contáctanos →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="reveal">
+      <h2>¿Hablamos?</h2>
+      <p>Estamos disponibles para responder tus preguntas y ayudarte a encontrar la mejor solución.</p>
+      <p>Correo: <a href="mailto:atehocode@gmail.com">atehocode@gmail.com</a></p>
+      <p style="margin-top:6px;font-size:14px;color:rgba(255,255,255,0.4)">Colombia · Chía, Cundinamarca</p>
+      <div class="contact-actions">
+        <a href="https://slotio.atehodev.online" class="btn-white" target="_blank">Probar Slotio gratis</a>
+        <a href="mailto:atehocode@gmail.com" class="btn-ghost">Enviar correo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="footer-logo">
+      <img src="icon.png" alt="AtehoCode" />
+      AtehoCode
+    </a>
+    <span>© 2026 AtehoCode. Todos los derechos reservados.</span>
+    <div>
+      <a href="privacy-policy.html">Privacidad</a>
+      <a href="terms.html">Términos</a>
+      <a href="https://slotio.atehodev.online" target="_blank">Slotio</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          observer.unobserve(e.target)
+        }
+      })
+    }, { threshold: 0.15 })
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+  </script>
+
+</body>
+</html>

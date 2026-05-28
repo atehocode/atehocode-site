@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0c29"/>
+      <stop offset="60%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="symbol" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo oscuro -->
+  <rect width="1024" height="1024" rx="226" fill="url(#bg)"/>
+
+  <!-- Halo sutil detrás del símbolo -->
+  <ellipse cx="512" cy="520" rx="240" ry="200" fill="#6366f1" opacity="0.18" filter="url(#glow)"/>
+
+  <!--
+    Símbolo: triángulo-A geométrico estilo marca tech
+    Tres líneas que forman una A estilizada y abierta en la base
+    Perfectamente centrado en 512, 512
+  -->
+
+  <!-- Pierna izquierda -->
+  <line x1="512" y1="248" x2="304" y2="726" stroke="url(#symbol)" stroke-width="72" stroke-linecap="round"/>
+
+  <!-- Pierna derecha -->
+  <line x1="512" y1="248" x2="720" y2="726" stroke="url(#symbol)" stroke-width="72" stroke-linecap="round"/>
+
+  <!-- Crossbar horizontal (ligeramente bajo el centro) -->
+  <line x1="384" y1="548" x2="640" y2="548" stroke="url(#symbol)" stroke-width="60" stroke-linecap="round"/>
+
+  <!-- Punto de acento abajo derecha — como indicador activo -->
+  <circle cx="726" cy="740" r="44" fill="#6366f1"/>
+  <circle cx="726" cy="740" r="26" fill="#a5b4fc"/>
+</svg>
