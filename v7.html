@@ -365,6 +365,7 @@
       color: var(--indigo-hi); font-weight: 700; flex-shrink: 0; margin-top: 1px;
     }
 
+    .prod-img-mobile { display: none; }
     .product-img-cell {
       flex: 1; background: var(--bg-2); padding: 0; overflow: hidden; position: relative;
     }
@@ -558,6 +559,9 @@
       .product-row { flex-direction: column; }
       .product-img-cell { min-height: 220px; }
       .product-img-cell.dash-cell { display: none !important; }
+      .product-img-cell:not(.dash-cell) { display: none !important; }
+      .prod-img-mobile { display: block; margin: 16px 0 20px; border-radius: 12px; overflow: hidden; background: var(--bg-2); height: 180px; }
+      .prod-img-mobile img { width: 100%; height: 100%; object-fit: contain; opacity: 0.85; }
 
       .terminal-section { padding: 64px 24px; }
       .term-wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -771,6 +775,9 @@
     <div class="product-row r r-d1">
       <div class="product-cell">
         <div class="product-tag-mono ptm-green">disponible_ahora</div>
+        <div class="prod-img-mobile">
+          <img src="slotio-og.png" alt="Slotio para negocios de servicios" />
+        </div>
         <h3 class="pname">Slotio</h3>
         <p class="pdesc">Plataforma de reservas y agendamiento por WhatsApp para negocios de servicios. Tus clientes agendan en segundos, sin llamadas ni formularios.</p>
         <ul class="pfeats">
