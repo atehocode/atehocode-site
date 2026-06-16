@@ -560,6 +560,8 @@
       /* Fix order: texto-img-texto-img (en vez de texto-img-img-texto) */
       .product-row > :nth-child(3) { order: 4 !important; }
       .product-row > :nth-child(4) { order: 3 !important; border-top: 2px solid var(--border-2); }
+      /* Ocultar dashboard mockup en mobile — se ve mejor sin él */
+      .dash-cell { display: none; }
 
       .terminal-section { padding: 64px 24px; }
       .term-wrap { grid-template-columns: 1fr; gap: 40px; }
